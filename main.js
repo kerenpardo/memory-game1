@@ -16,10 +16,6 @@ function createCard(idx){
     carEl.innerHTML=cards[idx];
     carEl.id=idx;
     carEl.className="card";
-    
-    
-    
-    
     return carEl;
 }
     shufle(cards);
@@ -27,12 +23,10 @@ function createCard(idx){
     for(i in cards){
         const element=createCard(i)
         board.appendChild(element);
-       
-        
     }
     
-         let a=document.getElementById("1");
-         a.onmouseover=this.style.backgroundColor="red";
+        //  let a=document.getElementById("1");
+        //  a.onmouseover=this.style.backgroundColor="red";
          
         
       
