@@ -2,7 +2,7 @@
   /* border: 2px solid black; */
   gap: 10px;
   display: grid;
-  grid-template-columns: repeat(4, 8rem);
+  grid-template-columns: repeat(5, 8rem);
   /* grid-template-rows: repeat(4, 8rem); */
 }
 
@@ -29,13 +29,21 @@ body {
 h1 {
   display: flex;
   justify-content: center;
-  color: #acb6e5;
+  color: azure;
+  font-family: "Lucida Console", "Courier New", monospace;
+  background-color: #f50d5b;
+  border-radius: 0.5em;
 }
+h2 {
+  color: crimson;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 .card:hover {
-  background-color: #74ebd5;
+  background-color: #eb749c;
 }
