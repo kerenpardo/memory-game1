@@ -5,6 +5,8 @@
   grid-gap: 10px;
   display: grid;
   grid-template-columns: repeat(5, auto);
+  perspective: 1000px;
+
 }
 h2 {
   font-size: 25px;
@@ -17,6 +19,15 @@ h2 {
   display: flex;
   justify-content: center;
   font-size: 60px;
+  transform-style: preserve-3d;
+  transition:transform 0.8s;
+  
+}
+.card.fliped{
+  
+  border :2px solid black ;
+  transform: rotateY(180deg);
+  border-radius:0.3em
 }
 body {
   margin: 0;

@@ -1,6 +1,4 @@
 
-
-
 const cards = [
   "images/1.jpg",
   "images/2.jpg",
@@ -23,12 +21,29 @@ const cards = [
   "images/12.jpg",
   "images/13.png"
 ];
+let a1=prompt("enter name1")
+let a2=prompt("enter name2")
+let i=0;
+let players=[{
+  player: a1,
+  score:0
+},
+{
+  player: a2,
+  score:0
+}
+]
+
 // const cardBack =
 let selectedCard = [];
 // const cardBack = "♥︎";
-const player = document.querySelector("span");
-let score = 0;
-player.textContent = score;
+let player1 = document.querySelector('#player1');
+let player2 = document.querySelector('#player2');
+player1.innerHTML= `${players[0].player} score: ${players[0].score}`
+player2.innerHTML= `${players[1].player} score: ${players[1].score}`
+
+// let score = 0;
+// player.textContent = score;
 
 // for(i of cards){
 //     let element=document.createElement("div");
@@ -69,32 +84,47 @@ function onCardClick(event) {
   selectedCard.push(+cardId);
 
   if (div.classList.contains("fliped") == false) {
-      
     let img = div.childNodes[0];
     div.removeChild(img);
     img.src = cards[cardId];
-    div.appendChild(img)
     div.classList.add("fliped");
+    div.appendChild(img);
+    
    
   }
   // if(div.innerHTML == cardBack){
   //     div.innerHTML = cards[cardId]
   // }
+  
   if (selectedCard.length == 2) {
     if (cards[selectedCard[0]] != cards[selectedCard[1]]) {
+      if(i==0){
+        console.log("plaler 2")
+        i++;
+      }else{
+        i=0;
+        console.log("player 1")
+      }
       const cardOne = document.getElementById(selectedCard[0]);
       hideCard(cardOne);
       const cardTwo = document.getElementById(selectedCard[1]);
       hideCard(cardTwo);
     }  if(cards[selectedCard[0]] == cards[selectedCard[1]]&&(selectedCard[0]!=selectedCard[1] )){
-      score++;
-      player.textContent = score;
+      players[i].score+=1;
+      if(i==0){
+        player1.innerHTML= `${players[0].player} score: ${players[0].score}`
+      }
+      else{
+        player2.innerHTML= `${players[1].player} score: ${players[1].score}`
+      }
+
     }
     selectedCard = [];
+      // score++;
+      // player.textContent = score;
+    }
+    
   }
-
-  ////////
-}
 
 shufle(cards);
 const board = document.getElementById("board");
@@ -103,5 +133,4 @@ for (i in cards) {
   board.appendChild(element);
 }
 
-//  let a=document.getElementById("1");
-//  a.onmouseover=this.style.backgroundColor="red";
+
